@@ -1,0 +1,9 @@
+- hosts: all
+  gather_facts: false
+  tasks:
+    - name: Sleep for {{ timeout }} seconds
+      wait_for:
+        timeout: "{{ timeout }}"
+      delegate_to: localhost
+      run_once: true
+      loop: "{{ looplist }}"
